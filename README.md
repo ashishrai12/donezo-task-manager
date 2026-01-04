@@ -11,3 +11,19 @@ git clone http://github.com/ashishrai12/donezo-task-manager.git
 cd donezo-task-manager
 pip install -r requirements.txt
 ```
+
+## Usage
+
+To start the application:
+
+```bash
+python -m donezo.main
+```
+
+## Testing
+
+To run tests:
+
+```bash
+pytest tests/test_tasks.py
+```
