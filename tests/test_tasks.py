@@ -1,6 +1,6 @@
 import pytest
 import pathlib
-from donezo.app.task_manager import TaskManager
+from donezo import TaskManager
 
 @pytest.fixture
 def task_manager(tmp_path):
@@ -16,8 +16,8 @@ def test_add_task(task_manager):
     assert new_count == initial_count + 1
     
     tasks = task_manager.list_tasks()
-    assert tasks[-1]["title"] == "New Task"
-    assert tasks[-1]["completed"] is False
+    assert tasks[-1].title == "New Task"
+    assert tasks[-1].completed is False
 
 def test_data_persistence(tmp_path):
     """Test that tasks are saved to and loaded from the file."""
@@ -32,7 +32,7 @@ def test_data_persistence(tmp_path):
     tasks = manager2.list_tasks()
     
     assert len(tasks) == 1
-    assert tasks[0]["title"] == "Persistent Task"
+    assert tasks[0].title == "Persistent Task"
 
 def test_add_empty_task_error(task_manager):
     """Test that adding an empty task raises ValueError."""
@@ -48,8 +48,8 @@ def test_complete_task(task_manager):
     task_manager.complete_task(task_id)
     
     tasks = task_manager.list_tasks()
-    task = next(t for t in tasks if t["id"] == task_id)
-    assert task["completed"] is True
+    task = next(t for t in tasks if t.id == task_id)
+    assert task.completed is True
 
 def test_delete_task(task_manager):
     """Test deleting a task."""
@@ -63,7 +63,7 @@ def test_delete_task(task_manager):
     
     # Verify task is gone
     tasks = task_manager.list_tasks()
-    assert not any(t["id"] == task_id for t in tasks)
+    assert not any(t.id == task_id for t in tasks)
 
 def test_invalid_task_id(task_manager):
     """Test operations with invalid task IDs raise KeyError."""
