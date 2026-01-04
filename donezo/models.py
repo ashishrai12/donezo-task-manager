@@ -3,6 +3,7 @@ from typing import Dict, Any
 
 @dataclass
 class Task:
+    """Represents a single task in the system."""
     id: int
     title: str
     completed: bool = False
