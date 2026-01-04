@@ -6,6 +6,8 @@
 
 **Donezo** is a sleek, professional Command Line Interface (CLI) task manager designed for simplicity and reliability. Built with a modular Python architecture, it features full data persistence and a comprehensive test suite.
 
+![Progress Visualization](donezo/progress.png)
+
 ---
 
 ## Features
