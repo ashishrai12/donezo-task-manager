@@ -61,6 +61,17 @@ class TaskManager:
         """
         return list(self._tasks)
 
+    def get_stats(self):
+        """Returns basic statistics about tasks."""
+        total = len(self._tasks)
+        completed = sum(1 for t in self._tasks if t.completed)
+        return {
+            "total": total,
+            "completed": completed,
+            "pending": total - completed,
+            "completion_rate": (completed / total * 100) if total > 0 else 0
+        }
+
     def _get_task_by_id(self, task_id: int) -> Optional[Task]:
         """Helper to find a task by its ID."""
         return next((t for t in self._tasks if t.id == task_id), None)

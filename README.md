@@ -11,6 +11,7 @@
 ## Features
 
 - **Persistent Storage**: Tasks are automatically saved to a local JSON database.
+- **Data Visualization**: Generate progress plots to visualize task completion rates.
 - **Robust Architecture**: Uses a modern `dataclass` model for data integrity.
 - **Fast CLI**: Efficient menu-driven interface for daily task management.
 - **Tested**: High reliability with a comprehensive `pytest` suite.
@@ -23,6 +24,7 @@
 ### Prerequisites
 
 - Python 3.7 or higher
+- `matplotlib` (for progress visualization)
 
 ### Installation
 
@@ -40,7 +42,7 @@
 
 3. Install dependencies:
    ```bash
-   pip install pytest
+   pip install pytest matplotlib
    ```
 
 ---
@@ -58,6 +60,7 @@ python -m donezo.main
 2. **List Tasks**: View all your current tasks and their status.
 3. **Complete Task**: Mark a task as finished by its ID.
 4. **Delete Task**: Remove a task permanently from the list.
+5. **View Progress**: Display task statistics and generate a `progress.png` pie chart.
 
 ---
 
@@ -82,7 +85,9 @@ donezo-task-manager/
 │   ├── main.py         # CLI entry point and menu logic
 │   ├── models.py       # Task data models (Dataclasses)
 │   ├── task_manager.py # Business logic and persistence
-│   └── tasks.json      # Local database (generated)
+│   ├── visualizer.py   # Plot generation logic
+│   ├── tasks.json      # Local database (generated)
+│   └── progress.png    # Progress visualization (generated)
 ├── tests/              # Test suite
 │   └── test_tasks.py   # Unit tests for TaskManager
 └── README.md           # Project documentation

@@ -1,5 +1,6 @@
 import pathlib
 from .task_manager import TaskManager
+from .visualizer import generate_task_stats_plot
 
 def print_menu():
     print("\n" + "="*30)
@@ -9,7 +10,8 @@ def print_menu():
     print("2. List Tasks")
     print("3. Complete Task")
     print("4. Delete Task")
-    print("5. Exit")
+    print("5. View Progress (Plot)")
+    print("6. Exit")
     print("="*30)
 
 def get_input(prompt: str) -> str:
@@ -56,6 +58,20 @@ def handle_delete_task(manager: TaskManager):
     except KeyError as e:
         print(f"Error: {e}")
 
+def handle_view_progress(manager: TaskManager):
+    stats = manager.get_stats()
+    print(f"\nProgress Summary:")
+    print(f"Total Tasks: {stats['total']}")
+    print(f"Completed:   {stats['completed']}")
+    print(f"Pending:     {stats['pending']}")
+    print(f"Rate:        {stats['completion_rate']:.1f}%")
+
+    output_path = pathlib.Path(__file__).parent / "progress.png"
+    if generate_task_stats_plot(manager, output_path):
+        print(f"Success: Progress plot saved to '{output_path}'")
+    else:
+        print("Note: Add some tasks first to generate a plot.")
+
 def main():
     db_path = pathlib.Path(__file__).parent / "tasks.json"
     manager = TaskManager(db_path)
@@ -65,13 +81,14 @@ def main():
         "2": handle_list_tasks,
         "3": handle_complete_task,
         "4": handle_delete_task,
+        "5": handle_view_progress,
     }
 
     while True:
         print_menu()
         choice = get_input("Choose an option: ")
 
-        if choice == "5":
+        if choice == "6":
             print("Goodbye!")
             break
         
