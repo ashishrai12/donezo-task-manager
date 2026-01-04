@@ -8,17 +8,17 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- **✅ Persistent Storage**: Tasks are automatically saved to a local JSON database.
-- **🏗️ Robust Architecture**: Uses a modern `dataclass` model for data integrity.
-- **⚡ Fast CLI**: Efficient menu-driven interface for daily task management.
-- **🧪 Tested**: High reliability with a comprehensive `pytest` suite.
-- **📦 Modular Design**: Clean package structure ready for expansion.
+- **Persistent Storage**: Tasks are automatically saved to a local JSON database.
+- **Robust Architecture**: Uses a modern `dataclass` model for data integrity.
+- **Fast CLI**: Efficient menu-driven interface for daily task management.
+- **Tested**: High reliability with a comprehensive `pytest` suite.
+- **Modular Design**: Clean package structure ready for expansion.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -45,7 +45,7 @@
 
 ---
 
-## 🛠️ Usage
+## Usage
 
 Run the following command to start the application:
 
@@ -61,7 +61,7 @@ python -m donezo.main
 
 ---
 
-## 🧪 Testing
+## Testing
 
 The project uses `pytest` for unit testing. To run the full suite:
 
@@ -73,7 +73,7 @@ pytest tests/test_tasks.py
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 donezo-task-manager/
@@ -90,6 +90,6 @@ donezo-task-manager/
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
