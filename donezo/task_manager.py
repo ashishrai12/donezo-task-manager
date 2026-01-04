@@ -55,7 +55,10 @@ class TaskManager:
         return task.id
 
     def list_tasks(self) -> List[Task]:
-        """Returns a copy of the current tasks."""
+        """
+        Returns a copy of the current tasks in the manager.
+        :return: List of Task objects
+        """
         return list(self._tasks)
 
     def _get_task_by_id(self, task_id: int) -> Optional[Task]:
